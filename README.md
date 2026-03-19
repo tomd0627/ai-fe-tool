@@ -2,8 +2,6 @@
 
 A web app that analyzes CSS snippets and explains each property in plain English, flags outdated patterns, and suggests modern alternatives — powered by the Claude AI API.
 
-**Live site:** https://tomdeluca-explainer.netlify.app
-
 ## What it does
 
 - Paste any CSS snippet and click **Analyze CSS**
