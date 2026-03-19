@@ -133,6 +133,7 @@ export const handler: Handler = async (event: HandlerEvent): Promise<HandlerResp
     const body: ApiResponse = { ok: true, data };
     return { statusCode: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' }, body: JSON.stringify(body) };
   } catch (err) {
+    console.error('Anthropic API error:', err);
     const isRateLimit = err instanceof Anthropic.RateLimitError;
     const body: ApiResponse = {
       ok: false,
