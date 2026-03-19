@@ -111,9 +111,11 @@ export const handler: Handler = async (event: HandlerEvent): Promise<HandlerResp
 
     const rawText = message.content[0]?.type === 'text' ? message.content[0].text : '';
 
+    const cleanedText = rawText.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/i, '').trim();
+
     let parsed: unknown;
     try {
-      parsed = JSON.parse(rawText);
+      parsed = JSON.parse(cleanedText);
     } catch {
       const body: ApiResponse = { ok: false, error: 'Failed to parse AI response. Please try again.', code: 'PARSE_ERROR' };
       return { statusCode: 502, headers: { ...corsHeaders, 'Content-Type': 'application/json' }, body: JSON.stringify(body) };
