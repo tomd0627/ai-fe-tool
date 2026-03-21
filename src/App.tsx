@@ -1,3 +1,4 @@
+import { Sun, Moon } from 'lucide-react';
 import { CssInput } from './components/CssInput.js';
 import { ResultsPanel } from './components/ResultsPanel.js';
 import { LoadingSkeleton } from './components/LoadingSkeleton.js';
@@ -34,7 +35,7 @@ export default function App() {
               onClick={toggle}
               aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
             >
-              {theme === 'dark' ? '☀' : '☾'}
+              {theme === 'dark' ? <Sun size={18} aria-hidden /> : <Moon size={18} aria-hidden />}
             </button>
           </div>
         </header>
